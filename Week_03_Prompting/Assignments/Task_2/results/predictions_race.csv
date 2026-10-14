@@ -1,0 +1,939 @@
+question_id,question,framework,prompt_id,model,predicted_sql,raw_model_output,elapsed_seconds,started_utc,status,error,attempt_count,done_reason,sql_only_format,total_duration,load_duration,prompt_eval_duration,eval_duration,prompt_eval_count,eval_count
+1,What is the best place in winters for tea food ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.ID, r.NAME, r.FOOD_TYPE, r.RATING, l.HOUSE_NUMBER, l.STREET_NAME, l.CITY_NAME, g.COUNTY, g.REGION
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+JOIN GEOGRAPHIC AS g ON r.CITY_NAME = g.CITY_NAME
+WHERE LOWER(r.FOOD_TYPE) = 'tea'
+ORDER BY r.RATING DESC
+LIMIT 1",,1.2327898000075947,2026-10-14T20:27:59.934236+00:00,ok,,1,stop,True,1230539800,12529200,25112000,1161748000,449,102
+2,What is the best place in moraga for european food ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'moraga'
+  AND LOWER(r.FOOD_TYPE) = 'european'
+ORDER BY r.RATING DESC
+LIMIT 1;",,0.794544299991685,2026-10-14T20:28:02.476870+00:00,ok,,1,stop,True,792825400,11968500,20864000,733262000,450,69
+3,What is the best place in eagan for egyptian food ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'eagan'
+  AND LOWER(r.FOOD_TYPE) = 'egyptian'
+ORDER BY r.RATING DESC
+LIMIT 1;",,0.8721137999964412,2026-10-14T20:28:04.021669+00:00,ok,,1,stop,True,845822200,25670000,23409000,765464000,452,71
+4,What is the best place in atherton for burmese food ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'atherton'
+  AND LOWER(r.FOOD_TYPE) = 'burmese'",,0.6992160999943735,2026-10-14T20:28:06.563034+00:00,ok,,1,stop,True,696937500,23077500,20847000,625536000,452,59
+5,"What is the best place in tahoe city for potatoes food, and I have not settled whether pasta belongs in a lunchbox or a flowerpot?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'tahoe'
+  AND LOWER(r.FOOD_TYPE) = 'potatoes'
+ORDER BY r.RATING DESC
+LIMIT 1",,0.842711799996323,2026-10-14T20:28:08.804652+00:00,ok,,1,stop,True,828129000,11344500,24592000,766893000,468,69
+6,What is the best californian in portola valley ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'portola valley'
+  AND LOWER(r.FOOD_TYPE) = 'californian'
+ORDER BY r.RATING DESC
+LIMIT 1;",,0.8446522000012919,2026-10-14T20:28:12.956208+00:00,ok,,1,stop,True,842864100,16928300,21649000,782392000,450,71
+7,"What is the best dim sum in santa rosa, and I still cannot decide whether soup or pie is the better breakfast?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'santa rosa'
+  AND LOWER(r.FOOD_TYPE) LIKE '%dim sum%'
+ORDER BY r.RATING DESC
+LIMIT 1",,0.7311649000039324,2026-10-14T20:28:13.803642+00:00,ok,,1,stop,True,726114400,11147700,20457000,686880000,462,64
+8,"On an unrelated menu question, I am torn between curry and apple pie, What is the best peruvian in crockett ?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'crockett'
+  AND LOWER(r.FOOD_TYPE) = 'peruvian'
+ORDER BY r.RATING DESC
+LIMIT 1",,0.7501430999982404,2026-10-14T20:28:16.211397+00:00,ok,,1,stop,True,745502400,12732500,25675000,684225000,463,64
+9,What is the best eclectic in calistoga ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'calistoga' AND LOWER(r.FOOD_TYPE) = 'eclectic'
+ORDER BY r.RATING DESC
+LIMIT 1;",,0.809576300001936,2026-10-14T20:28:20.342558+00:00,ok,,1,stop,True,807734300,13836200,20935000,746882000,448,69
+10,What is the best delivery in rio del mar ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'rio del mar' 
+ORDER BY r.RATING DESC
+LIMIT 1;",,0.7019953999988502,2026-10-14T20:28:21.153374+00:00,ok,,1,stop,True,690918600,20006800,23831000,638998000,448,58
+11,"While comparing dumplings with pancakes for an imaginary picnic, give me a restaurant on timber creek dr in san jose with a rating above 1.7 (poorly rated or better)?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'dumplings'
+  AND r.RATING > 1.7
+  AND LOWER(l.STREET_NAME) = 'TIMBER CREEK DR'
+  AND LOWER(l.CITY_NAME) = 'SAN JOSE'",,1.0318851999909384,2026-10-14T20:28:23.822474+00:00,ok,,1,stop,True,994936900,12432800,21352000,938686000,476,88
+12,give me a restaurant on plaza way in lafayette with a rating above 1.8 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'lafayette'
+  AND LOWER(l.STREET_NAME) = 'PLAZA WAY'
+  AND r.RATING >= 1.8;",,0.8441803000023356,2026-10-14T20:28:27.019868+00:00,ok,,1,stop,True,834730700,15028100,22391000,771066000,465,72
+13,give me a restaurant on avenue near the alameda in belmont with a rating above 2.3 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'belmont'
+  AND LOWER(r.FOOD_TYPE) LIKE '%avenue%'
+  AND l.CITY_NAME = 'alameda'
+  AND r.RATING > 2.3
+ORDER BY r.RATING DESC
+LIMIT 1;",,1.0407859999977518,2026-10-14T20:28:29.618419+00:00,ok,,1,stop,True,1038809100,14539300,20192000,975850000,465,91
+14,give me a restaurant on w evelyn ave ste 108 in sunnyvale with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(l.STREET_NAME) = 'w evelyn ave' AND l.HOUSE_NUMBER = 108 AND LOWER(r.CITY_NAME) = 'sunnyvale' AND r.RATING > 2",,0.9283621000067797,2026-10-14T20:28:33.788316+00:00,ok,,1,stop,True,911008100,13700500,23409000,842150000,468,78
+15,give me a restaurant on san ignacio ave in san jose with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'san jose'
+  AND LOWER(l.STREET_NAME) = 'san ignacio ave'
+  AND r.RATING >= 1.7
+ORDER BY r.RATING DESC
+LIMIT 1;",,0.9762222999997903,2026-10-14T20:28:37.476170+00:00,ok,,1,stop,True,974013800,20909800,21916000,894438000,466,82
+16,where can i eat drive in food in palo alto ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'drive in'
+  AND LOWER(r.CITY_NAME) = 'palo alto'",,0.6917388000001665,2026-10-14T20:28:39.970373+00:00,ok,,1,stop,True,686682900,18323900,21128000,618998000,450,59
+17,where can i eat bar food in glen ellen ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'bar'
+  AND LOWER(r.CITY_NAME) = 'glen ellen'",,0.7172849000053247,2026-10-14T20:28:41.351313+00:00,ok,,1,stop,True,714963400,26082700,19613000,640210000,450,59
+18,where can i eat juice bar food in foster city ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'juice bar'
+  AND LOWER(r.CITY_NAME) = 'foster city'
+ORDER BY r.RATING DESC",,0.7730076000007102,2026-10-14T20:28:44.271681+00:00,ok,,1,stop,True,760788800,12829400,20289000,701113000,449,66
+19,where can i eat spanish food in oakland ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'oakland' AND LOWER(r.FOOD_TYPE) = 'spanish' AND r.RATING >= 0",,0.7771779000031529,2026-10-14T20:28:45.048309+00:00,ok,,1,stop,True,774617100,14076900,18181000,733051000,448,65
+20,where can i eat swiss food in moss beach ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'swiss'
+  AND LOWER(r.CITY_NAME) = 'moss beach'",,0.6845527999976184,2026-10-14T20:28:48.182397+00:00,ok,,1,stop,True,683380500,13683300,20370000,622741000,449,59
+21,"what is a restaurant in forestville with a rating above 4.5 (excellent or better), though I am also choosing between noodles and a sandwich for a rainy picnic?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'forestville'
+  AND r.RATING > 4.5
+  AND (LOWER(r.FOOD_TYPE) = 'noodles' OR LOWER(r.FOOD_TYPE) = 'sandwich')",,0.9307927999907406,2026-10-14T20:28:49.580017+00:00,ok,,1,stop,True,909193300,13553000,20760000,843204000,474,77
+22,what is a restaurant in vallejo with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'vallejo'
+  AND r.RATING > 2
+ORDER BY r.RATING DESC",,0.736488399998052,2026-10-14T20:28:54.064248+00:00,ok,,1,stop,True,713543100,14708000,20486000,650964000,458,61
+23,what is a restaurant in alameda with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'alameda' AND r.RATING > 2",,0.6379874999984168,2026-10-14T20:28:56.180988+00:00,ok,,1,stop,True,621691700,21566300,20780000,551733000,457,52
+24,what is a restaurant in san juan bautista with a rating above 4.5 (excellent or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'san juan bautista'
+  AND r.RATING >= 4.5",,0.7054345000069588,2026-10-14T20:28:57.677064+00:00,ok,,1,stop,True,703481900,11025200,21925000,640502000,463,59
+25,"what is a restaurant in larkspur with a rating above 4.5 (excellent or better), and I am still weighing curry against apple pie for a trip to the moon?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'larkspur'
+  AND r.RATING > 4.5
+  AND (LOWER(r.FOOD_TYPE) = 'curry' OR LOWER(r.FOOD_TYPE) = 'apple pie')",,0.9178623000043444,2026-10-14T20:29:00.217322+00:00,ok,,1,stop,True,897921700,11591000,23643000,836149000,477,79
+26,"A very long menu debate has occupied my afternoon: should a picnic feature warm noodles, cold muffins, or an elaborate tower of crackers, and would any of them pair well with a map of imaginary islands? what are some restaurants in oakland with a rating above 2 (below average or better)? This also reminds me of an unrelated menu puzzle involving pumpkin biscuits, chilled soup, and an imaginary picnic where every plate must be shared with a different stuffed animal.",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE r.CITY_NAME = 'OAKLAND'
+  AND r.RATING >= 2.0
+ORDER BY r.RATING DESC;",,0.7058460999978706,2026-10-14T20:29:03.508885+00:00,ok,,1,stop,True,703423100,22033000,30985000,610128000,531,57
+27,"what are some restaurants in vacaville with a rating above 2 (below average or better), while I wonder if dumplings or pancakes could help me find my misplaced umbrella?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'vacaville'
+  AND r.RATING > 2.0
+  AND (LOWER(r.FOOD_TYPE) = 'dumplings' OR LOWER(r.FOOD_TYPE) = 'pancakes')",,0.9957326000003377,2026-10-14T20:29:06.219264+00:00,ok,,1,stop,True,980767900,14242400,22020000,917905000,474,84
+28,what are some restaurants in alameda with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'alameda' AND r.RATING >= 2.0",,0.6429113000049256,2026-10-14T20:29:07.860544+00:00,ok,,1,stop,True,641830200,17096300,19768000,573125000,457,54
+29,what are some restaurants in east palo alto with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'east palo alto'
+  AND r.RATING > 2
+ORDER BY r.RATING DESC",,0.7312349999992875,2026-10-14T20:29:10.716540+00:00,ok,,1,stop,True,729845100,19456000,17655000,664325000,459,62
+30,what are some restaurants in santa cruz with a rating above 2.5 (average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'santa cruz' AND r.RATING >= 2.5",,0.6795180000044638,2026-10-14T20:29:12.868981+00:00,ok,,1,stop,True,675966700,21567200,18207000,606822000,458,55
+31,what is a restaurant in brentwood with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'brentwood' AND r.RATING > 2 ORDER BY r.RATING DESC LIMIT 1",,0.7400781000033021,2026-10-14T20:29:13.550768+00:00,ok,,1,stop,True,737314900,18944900,20056000,691597000,458,62
+32,what is a restaurant in mill valley with a rating above 4.5 (excellent or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'mill valley' AND r.RATING >= 4.5",,0.6713789999921573,2026-10-14T20:29:16.669990+00:00,ok,,1,stop,True,653119700,12878900,23799000,586536000,459,54
+33,what is a restaurant in rio vista with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'rio vista' AND r.RATING > 2",,0.6171956000034697,2026-10-14T20:29:18.883903+00:00,ok,,1,stop,True,615858600,12305900,19407000,556871000,457,52
+34,what is a restaurant in rio del mar with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'rio del mar' AND r.RATING >= 1.7",,0.6900059000035981,2026-10-14T20:29:21.054790+00:00,ok,,1,stop,True,688767400,11836000,17666000,629809000,462,55
+35,what is a restaurant in lafayette with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'lafayette' AND r.RATING > 2 ORDER BY r.RATING DESC LIMIT 1",,0.7709611000027508,2026-10-14T20:29:23.872010+00:00,ok,,1,stop,True,768414000,28193200,21709000,676297000,458,62
+36,where can i eat some mexican food on noriega in san francisco with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'san francisco'
+  AND LOWER(r.FOOD_TYPE) = 'mexican'
+  AND LOWER(l.STREET_NAME) = 'noriega'
+  AND r.RATING >= 2.0
+ORDER BY r.RATING DESC",,1.0906691999989562,2026-10-14T20:29:25.899977+00:00,ok,,1,stop,True,1064435600,11543300,22647000,1002814000,466,91
+37,where can i eat some vietnamese food on shellmound st # 12 in emeryville with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'emeryville'
+  AND LOWER(r.FOOD_TYPE) = 'vietnamese'
+  AND l.STREET_NAME = 'shellmound st'
+  AND l.HOUSE_NUMBER = 12
+  AND r.RATING >= 1.7
+ORDER BY r.RATING DESC;",,1.163261900001089,2026-10-14T20:29:30.493272+00:00,ok,,1,stop,True,1147120100,11426400,20036000,1087806000,475,102
+38,where can i eat some mexican food on persian dr in sunnyvale with a rating above 4.5 (excellent or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'sunnyvale'
+  AND LOWER(r.FOOD_TYPE) = 'mexican'
+  AND LOWER(l.STREET_NAME) = 'persian dr'
+  AND r.RATING >= 4.5",,0.9809796000045026,2026-10-14T20:29:32.792814+00:00,ok,,1,stop,True,978689200,12802500,20609000,914594000,467,84
+39,where can i eat some cafe food on el camino real in san bruno with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'cafe'
+  AND LOWER(r.CITY_NAME) = 'san bruno'
+  AND LOWER(l.STREET_NAME) = 'el camino real'
+  AND r.RATING > 2",,0.9625947000022279,2026-10-14T20:29:36.707149+00:00,ok,,1,stop,True,961142200,19875500,23125000,885029000,465,81
+40,where can i eat some pizza food on hawkins st in hollister with a rating above 4.5 (excellent or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'pizza'
+  AND LOWER(l.STREET_NAME) = 'HAWKINS ST'
+  AND LOWER(r.CITY_NAME) = 'HOLLISTER'
+  AND r.RATING >= 4.5",,0.9918108999991091,2026-10-14T20:29:38.815879+00:00,ok,,1,stop,True,989329800,15370400,23186000,922016000,468,84
+41,where is a restaurant on hillsdale mall in san mateo for ice cream food with a rating above 1.8 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'ice cream'
+  AND LOWER(r.CITY_NAME) = 'san mateo'
+  AND l.STREET_NAME LIKE '%hillsdale mall%'
+  AND r.RATING >= 1.8
+ORDER BY r.RATING DESC;",,1.0863826999993762,2026-10-14T20:29:40.806893+00:00,ok,,1,stop,True,1085113200,27017900,21967000,1002501000,470,90
+42,where is a restaurant on st in sonoma for winery food with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'winery food'
+  AND LOWER(r.RATING) >= 1.7
+  AND LOWER(r.CITY_NAME) = 'sonoma'
+  AND LOWER(l.STREET_NAME) = 'st'",,1.0090093000035267,2026-10-14T20:29:46.037107+00:00,ok,,1,stop,True,994728300,30139600,23126000,906577000,467,84
+43,where is a restaurant on hartz av in danville for cafe food with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'cafe'
+  AND LOWER(r.CITY_NAME) = 'danville'
+  AND l.STREET_NAME = 'HARZT AV'
+  AND r.RATING > 2",,0.9636763000016799,2026-10-14T20:29:48.868146+00:00,ok,,1,stop,True,962833100,16876400,19489000,900133000,464,80
+44,where is a restaurant on othello dr in fremont for cafe food with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'cafe'
+  AND LOWER(r.CITY_NAME) = 'fremont'
+  AND l.STREET_NAME = 'OTHELLON DR'
+  AND r.RATING >= 1.7
+ORDER BY r.RATING DESC",,1.022907500009751,2026-10-14T20:29:50.863420+00:00,ok,,1,stop,True,1022030200,14440900,20109000,955294000,469,89
+45,where is a restaurant on n.shoreline blvd. in mountain view for sandwiches food with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'sandwiches'
+  AND LOWER(r.CITY_NAME) = 'mountain view'
+  AND l.STREET_NAME = 'N.SHORELINE BLVD'
+  AND r.RATING > 2",,0.9697442000033334,2026-10-14T20:29:54.798159+00:00,ok,,1,stop,True,966502600,11553700,21501000,907190000,468,83
+46,where is a bakery restaurant on simms st in san rafael with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'bakery'
+  AND LOWER(l.STREET_NAME) = 'SIMMS ST'
+  AND LOWER(r.CITY_NAME) = 'SAN RAFAEL'
+  AND r.RATING >= 1.7
+ORDER BY r.RATING DESC;",,1.0864064999914262,2026-10-14T20:29:56.955127+00:00,ok,,1,stop,True,1085086700,11553900,20738000,1026980000,468,92
+47,where is a donuts restaurant on mission st in daly city with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'daly city'
+  AND LOWER(r.FOOD_TYPE) = 'donuts'
+  AND r.RATING >= 1.7
+  AND l.STREET_NAME = 'MISSION ST';",,0.97696050000377,2026-10-14T20:29:59.104858+00:00,ok,,1,stop,True,944521200,13192300,18860000,878367000,467,81
+48,where is a cafe restaurant on n san pedro st in san jose with a rating above 1.8 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'cafe'
+  AND LOWER(r.CITY_NAME) = 'san jose'
+  AND l.STREET_NAME = 'N SAN PEDRO ST'
+  AND r.RATING >= 1.8
+ORDER BY r.RATING DESC;",,1.0390038000041386,2026-10-14T20:30:03.361078+00:00,ok,,1,stop,True,1036616000,15562200,22316000,971237000,468,90
+49,where is a japanese restaurant on broadway in burlingame with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'burlingame'
+  AND LOWER(r.FOOD_TYPE) = 'japanese'
+  AND l.STREET_NAME = 'BROADWAY'
+  AND r.RATING >= 1.7
+ORDER BY r.RATING DESC;",,1.0449291999975685,2026-10-14T20:30:06.577620+00:00,ok,,1,stop,True,1040980500,12896500,18754000,978381000,467,90
+50,"where is a asian restaurant on castro st in mountain view with a rating above 2.8 (average or better), and I am still weighing curry against apple pie for a trip to the moon?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'mountain view'
+  AND LOWER(r.FOOD_TYPE) = 'asian'
+  AND r.RATING > 2.8
+  AND l.STREET_NAME = 'CASTRO ST'
+ORDER BY r.RATING DESC",,1.0115075999929104,2026-10-14T20:30:11.127388+00:00,ok,,1,stop,True,1009280400,13137500,23705000,945475000,479,88
+51,give me a restaurant on mission blvd in hayward for pizza food with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'pizza'
+  AND LOWER(r.CITY_NAME) = 'hayward'
+  AND l.STREET_NAME = 'MISSION BLVD'
+  AND r.RATING >= 1.7
+ORDER BY r.RATING DESC
+LIMIT 1;",,1.0727208000025712,2026-10-14T20:30:14.306495+00:00,ok,,1,stop,True,1071388600,12466800,21218000,1007302000,468,91
+52,"give me a restaurant on san pablo ave # a in pinole for deli food with a rating above 2 (below average or better), though I am also choosing between noodles and a sandwich for a rainy picnic?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(l.STREET_NAME) = 'san pablo ave'
+  AND l.HOUSE_NUMBER = 'a'
+  AND LOWER(r.FOOD_TYPE) IN ('noodles', 'sandwich')
+  AND r.CITY_NAME = 'pinole'
+  AND LOWER(r.FOOD_TYPE) = 'deli'
+  AND r.RATING > 2",,1.2295218000072055,2026-10-14T20:30:15.382700+00:00,ok,,1,stop,True,1227927900,17158700,23815000,1178418000,483,106
+53,give me a restaurant on contra costa blvd ste a in pleasant hill for pizza food with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(l.STREET_NAME) = 'contra costa blvd' AND l.HOUSE_NUMBER = 'a' AND LOWER(r.FOOD_TYPE) = 'pizza' AND r.RATING > 2",,0.880797400008305,2026-10-14T20:30:18.719118+00:00,ok,,1,stop,True,878267600,14581800,21948000,811353000,467,74
+54,"Thinking about snacks, I wonder whether a muffin or a burrito is easier to fold, give me a restaurant on ocean ave in san francisco for cafe food with a rating above 1.5 (poorly rated or better)?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'cafe'
+  AND LOWER(r.RATING) >= 1.5
+  AND LOWER(r.CITY_NAME) = 'san francisco'
+  AND LOWER(l.STREET_NAME) = 'OCEAN AVE'",,1.0344372999970801,2026-10-14T20:30:22.876393+00:00,ok,,1,stop,True,1032676000,17256800,22809000,965181000,487,88
+55,"My unrelated culinary dilemma involves choosing between cinnamon toast, vegetable pie, and a bowl of rice for a pretend celebration, while a very serious committee of stuffed animals reviews the menu. give me a restaurant on 6th st in hayward for bar food with a rating above 1.7 (poorly rated or better)? On a completely separate note, I cannot settle whether blueberry dumplings or cinnamon toast would be a better offering at a fictional festival held on the far side of a very large armchair.",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE l.STREET_NAME = '6TH ST'
+  AND r.FOOD_TYPE = 'BAR FOOD'
+  AND r.RATING >= 1.7
+  AND r.CITY_NAME = 'HAYWARD'",,0.9395016999915242,2026-10-14T20:30:24.997804+00:00,ok,,1,stop,True,936572000,19242500,35113000,851073000,542,78
+56,give me a donuts restaurant on mission blvd in fremont with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'donuts'
+  AND LOWER(r.CITY_NAME) = 'fremont'
+  AND LOWER(l.STREET_NAME) = 'mission blvd'
+  AND r.RATING > 1.7
+ORDER BY r.RATING DESC
+LIMIT 1;",,1.1164340999966953,2026-10-14T20:30:28.012200+00:00,ok,,1,stop,True,1106749500,25319700,19925000,1030344000,467,95
+57,"My unrelated culinary dilemma involves choosing between cinnamon toast, vegetable pie, and a bowl of rice for a pretend celebration, while a very serious committee of stuffed animals reviews the menu. I keep changing my mind about whether soup or toast is better company for a compass, give me a italian restaurant on clement in san francisco with a rating above 2 (below average or better)? This also reminds me of an unrelated menu puzzle involving pumpkin biscuits, chilled soup, and an imaginary picnic where every plate must be shared with a different stuffed animal.",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'italian'
+  AND LOWER(r.CITY_NAME) = 'san francisco'
+  AND r.RATING > 2
+  AND LOWER(l.STREET_NAME) = 'clement'
+ORDER BY r.RATING DESC",,1.0485267999902135,2026-10-14T20:30:33.190695+00:00,ok,,1,stop,True,1046580300,15751100,36267000,965308000,546,87
+58,give me a cafe restaurant on clement in san francisco with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'san francisco'
+  AND LOWER(r.FOOD_TYPE) = 'cafe'
+  AND r.RATING > 2
+  AND l.STREET_NAME = 'CLEMENT'",,0.9733842999994522,2026-10-14T20:30:36.093298+00:00,ok,,1,stop,True,955173900,30263800,19706000,872370000,462,79
+59,"A very long menu debate has occupied my afternoon: should a picnic feature warm noodles, cold muffins, or an elaborate tower of crackers, and would any of them pair well with a map of imaginary islands? give me a mexican restaurant on clayton rd apt 7 in concord with a rating above 1.7 (poorly rated or better)? Separately, I am still deciding whether a basket of roasted chickpeas, a stack of pear pancakes, or a bowl of noodles would make the most sensible snack for a journey that exists only on a kitchen calendar.",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'concord'
+  AND LOWER(r.FOOD_TYPE) = 'mexican'
+  AND r.RATING >= 1.7
+  AND l.STREET_NAME = 'CLAYTON RD'
+  AND l.HOUSE_NUMBER = 7
+ORDER BY r.RATING DESC
+LIMIT 1;",,1.222296500010998,2026-10-14T20:30:37.070082+00:00,ok,,1,stop,True,1217658700,23280800,36966000,1145956000,556,104
+60,give me a continental restaurant on south market st in san jose with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'san jose'
+  AND LOWER(r.FOOD_TYPE) = 'continental'
+  AND LOWER(l.STREET_NAME) = 'south market st'
+  AND r.RATING > 2
+ORDER BY r.RATING DESC
+LIMIT 1",,1.0629746000049636,2026-10-14T20:30:42.140984+00:00,ok,,1,stop,True,1047883300,16493700,21754000,976878000,462,90
+61,"where are some restaurants for mexican food on ave. in mill valley with a rating above 2 (below average or better), while I wonder if dumplings or pancakes could help me find my misplaced umbrella?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'mexican'
+  AND LOWER(r.CITY_NAME) = 'mill valley'
+  AND r.RATING > 2
+  AND (LOWER(r.FOOD_TYPE) = 'dumplings' OR LOWER(r.FOOD_TYPE) = 'pancakes')",,1.1354273000033572,2026-10-14T20:30:44.182701+00:00,ok,,1,stop,True,1133595600,21712000,20797000,1058614000,480,95
+62,"I cannot decide whether pasta belongs in a lunchbox or a flowerpot, where are some restaurants for chinese food on grand ave in south san francisco with a rating above 1.7 (poorly rated or better)?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'chinese'
+  AND LOWER(l.STREET_NAME) = 'grand ave'
+  AND LOWER(r.CITY_NAME) = 'south san francisco'
+  AND r.RATING >= 1.7
+ORDER BY r.RATING DESC",,1.0895076000015251,2026-10-14T20:30:47.558456+00:00,ok,,1,stop,True,1076710800,15054100,24600000,1004611000,484,90
+63,"I am still deciding whether a taco or a bowl of cereal suits a rainy day, where are some restaurants for mexican food on mill st in ben lomond with a rating above 2 (below average or better)?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'mexican'
+  AND LOWER(r.CITY_NAME) = 'ben lomond'
+  AND l.STREET_NAME = 'mill st'
+  AND r.RATING > 2",,0.9790552000049502,2026-10-14T20:30:51.182670+00:00,ok,,1,stop,True,952725300,18434900,24180000,877440000,483,80
+64,"I am still deciding whether a taco or a bowl of cereal suits a rainy day, where are some restaurants for dessert food on candelero dr in walnut creek with a rating above 1.5 (poorly rated or better)?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'dessert'
+  AND LOWER(r.CITY_NAME) = 'walnut creek'
+  AND LOWER(l.STREET_NAME) = 'candelero dr'
+  AND r.RATING >= 1.5
+ORDER BY r.RATING DESC",,1.096025400009239,2026-10-14T20:30:55.755817+00:00,ok,,1,stop,True,1076728000,11579200,20808000,1008874000,486,91
+65,where are some restaurants for american food on exp/riveroaks in san jose with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'american'
+  AND l.STREET_NAME LIKE '%exp/riveroaks%'
+  AND l.CITY_NAME = 'san jose'
+  AND r.RATING > 2",,0.9425950000004377,2026-10-14T20:30:58.130438+00:00,ok,,1,stop,True,928234300,27792500,21974000,843563000,466,77
+66,What is the lifes greates illusion?,race,race_v2_house_number,qwen2.5:3b-instruct,"None of the provided tables contain information related to the ""lifes greatest illusion"". Therefore, no SQL query can be generated based on the provided schema and question.",,0.41547379999246914,2026-10-14T20:31:01.303644+00:00,ok,,1,stop,False,414455000,15295500,18370000,354844000,446,33
+67,give me some restaurants in the monterey with a rating above 4.5 (excellent or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'monterey' AND r.RATING >= 4.5",,0.69342830000096,2026-10-14T20:31:02.699429+00:00,ok,,1,stop,True,666744100,12729800,21017000,604405000,461,55
+68,give me some restaurants in the sacramento area with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'sacramento' AND r.RATING > 2 ORDER BY r.RATING DESC;",,0.7249306000012439,2026-10-14T20:31:05.503506+00:00,ok,,1,stop,True,723140400,14152200,20255000,659078000,459,60
+69,give me some restaurants in the lake tahoe with a rating above 2.3 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'lake tahoe' AND r.RATING >= 2.3",,0.6862238000030629,2026-10-14T20:31:06.922744+00:00,ok,,1,stop,True,684551300,24458900,22270000,603797000,461,55
+70,"give me some restaurants in the napa valley with a rating above 2 (below average or better), and whether a taco or a bowl of cereal would make a better hat?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.NAME, l.HOUSE_NUMBER
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE r.RATING > 2.0
+AND r.CITY_NAME = 'napa valley'",,0.6524714999977732,2026-10-14T20:31:09.857111+00:00,ok,,1,stop,True,651019400,14893100,20367000,588240000,474,54
+71,where can we find a restaurant on buchanan in seaside ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(l.STREET_NAME) = 'buchanan'
+  AND LOWER(l.CITY_NAME) = 'seaside';",,0.6903278999961913,2026-10-14T20:31:11.921834+00:00,ok,,1,stop,True,685694300,14052100,24520000,613064000,451,58
+72,"I cannot decide whether pasta belongs in a lunchbox or a flowerpot, where can we find a restaurant on alvarado blvd in banta ?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'banta'
+  AND LOWER(l.STREET_NAME) = 'alvarado blvd'",,0.7353827000042656,2026-10-14T20:31:12.615783+00:00,ok,,1,stop,True,729848000,13061500,22889000,685588000,469,61
+73,"where can we find a restaurant on town and country vlg in campbell, while the menu leaves me wondering whether toast or soup can teach a compass to sing?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'campbell'
+  AND LOWER(r.FOOD_TYPE) LIKE '%toast%'
+  OR LOWER(r.FOOD_TYPE) LIKE '%soup%'
+  AND LOWER(l.STREET_NAME) = 'TOWN AND COUNTRY VLG'",,1.0150141000049189,2026-10-14T20:31:14.821148+00:00,ok,,1,stop,True,1010396400,28327000,23908000,931034000,471,87
+74,"While comparing dumplings with pancakes for an imaginary picnic, where can we find a restaurant on laurie meadows dr in orinda ?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'dumplings' OR LOWER(r.FOOD_TYPE) = 'pancakes'
+  AND LOWER(l.STREET_NAME) = 'LAURIE MEADOWS DR'
+  AND LOWER(l.CITY_NAME) = 'ORINDA'",,1.0569141000014497,2026-10-14T20:31:19.215125+00:00,ok,,1,stop,True,1032574200,18463300,22963000,965037000,466,90
+75,where can we find a restaurant on allston way in pacheco ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(l.STREET_NAME) = 'allston way'
+  AND LOWER(r.CITY_NAME) = 'pacheco'",,0.7365464000031352,2026-10-14T20:31:21.008231+00:00,ok,,1,stop,True,718922400,13392700,22817000,658358000,453,60
+76,"On an unrelated menu question, I am torn between curry and apple pie, where can we find some restaurants on e capitol expy # 104 in sonora ?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE l.HOUSE_NUMBER = '104' AND l.STREET_NAME LIKE '%e capitol expy%'
+  AND (LOWER(r.FOOD_TYPE) = 'curry' OR LOWER(r.FOOD_TYPE) = 'apple pie')
+  AND LOWER(r.CITY_NAME) = 'sonora'",,1.1140904999920167,2026-10-14T20:31:23.303327+00:00,ok,,1,stop,True,1110025600,14073300,25824000,1046021999,474,96
+77,where can we find some restaurants on e. morehead in campbell ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(l.STREET_NAME) = 'e. morehead'
+  AND l.CITY_NAME = 'campbell'",,0.6817548999970313,2026-10-14T20:31:26.479397+00:00,ok,,1,stop,True,680240800,11883800,21444000,623992000,453,58
+78,where can we find some restaurants on w 25th ave in los altos ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(l.STREET_NAME) = 'w 25th ave'
+  AND LOWER(r.CITY_NAME) = 'los altos'",,0.7603927000018302,2026-10-14T20:31:29.409749+00:00,ok,,1,stop,True,735783300,22932200,22507000,667823000,456,63
+79,where can we find some restaurants on alvarado blvd in menlo park ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(l.STREET_NAME) = 'alvarado blvd'
+  AND LOWER(r.CITY_NAME) = 'menlo park'",,0.7215436999977101,2026-10-14T20:31:31.800762+00:00,ok,,1,stop,True,720764800,14475800,23799000,659222000,455,62
+80,"A very long menu debate has occupied my afternoon: should a picnic feature warm noodles, cold muffins, or an elaborate tower of crackers, and would any of them pair well with a map of imaginary islands? where can we find some restaurants on scotts valley dr in concord ? Meanwhile, a hypothetical lunchbox committee is debating lentil pie, roasted pears, and tiny omelets, with no agreement about which one would travel best across an imaginary ocean.",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.NAME, l.HOUSE_NUMBER
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE r.CITY_NAME = 'Concord'
+  AND l.STREET_NAME = 'Scotts Valley Dr'
+ORDER BY r.RATING DESC
+LIMIT 1;",,0.7959894999949029,2026-10-14T20:31:32.527739+00:00,ok,,1,stop,True,793758600,12082700,32543999,741887000,532,67
+81,what is the best basque in the bay area ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'basque'
+  AND LOWER(r.CITY_NAME) LIKE '%bay area%'
+ORDER BY r.RATING DESC
+LIMIT 1;",,0.8613676999957534,2026-10-14T20:31:36.204171+00:00,ok,,1,stop,True,859897100,13184100,23391000,800376000,449,69
+82,"I cannot decide whether pasta belongs in a lunchbox or a flowerpot, what is the best lamb in the northern california ?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.ID, r.NAME, r.FOOD_TYPE, r.RATING, g.REGION
+FROM RESTAURANT AS r
+JOIN GEOGRAPHIC AS g ON r.CITY_NAME = g.CITY_NAME
+WHERE r.FOOD_TYPE = 'lamb' AND g.REGION = 'northern california'
+ORDER BY r.RATING DESC
+LIMIT 1",,0.9409010999952443,2026-10-14T20:31:37.922997+00:00,ok,,1,stop,True,923445700,23812200,23982000,841566000,463,76
+83,what is the best hoffbrau in the sacramento area ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'sacramento'
+  AND LOWER(r.FOOD_TYPE) = 'hoffbrau'
+ORDER BY r.RATING DESC
+LIMIT 1;",,0.8576201000105357,2026-10-14T20:31:41.457733+00:00,ok,,1,stop,True,855833300,17578100,21152000,793540000,452,72
+84,"I cannot decide whether pasta belongs in a lunchbox or a flowerpot, what is the best yogurt in the yosemite and mono lake area ?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'yogurt'
+  AND LOWER(r.CITY_NAME) = 'yosemite' AND LOWER(r.CITY_NAME) = 'mono lake'
+ORDER BY r.RATING DESC
+LIMIT 1",,0.8894089999957941,2026-10-14T20:31:44.110256+00:00,ok,,1,stop,True,887199500,23335100,22407000,813999000,467,76
+85,what is the best brunch in the napa valley ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'napa valley'
+ORDER BY r.RATING DESC
+LIMIT 1;",,0.6665801999915857,2026-10-14T20:31:45.941701+00:00,ok,,1,stop,True,664716500,11643700,18840000,605609000,449,57
+86,give me some restaurants in the los angeles area ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'los angeles'",,0.508404199994402,2026-10-14T20:31:49.429007+00:00,ok,,1,stop,True,506435700,18286600,25247000,435563000,449,41
+87,give me some restaurants in the bay area ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) LIKE '%bay area%'",,0.5046091000112938,2026-10-14T20:31:50.761935+00:00,ok,,1,stop,True,503323000,10270500,23299000,445299000,447,40
+88,give me some restaurants in the unknown ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.ID, r.NAME, r.FOOD_TYPE, r.CITY_NAME
+FROM RESTAURANT AS r
+WHERE r.CITY_NAME = 'unknown'",,0.42405760000110604,2026-10-14T20:31:52.286251+00:00,ok,,1,stop,True,421708400,12444600,17356000,370723000,446,35
+89,give me some restaurants in the northern california ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.ID, r.NAME, r.FOOD_TYPE, r.CITY_NAME
+FROM RESTAURANT AS r
+JOIN GEOGRAPHIC AS g ON r.CITY_NAME = g.CITY_NAME
+WHERE g.REGION = 'northern california'
+ORDER BY r.RATING DESC",,0.6895564000005834,2026-10-14T20:31:53.906580+00:00,ok,,1,stop,True,688702300,12561700,22127000,629751000,447,59
+90,"give me some restaurants in the sacramento area, and I have not settled whether pasta belongs in a lunchbox or a flowerpot?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.ID, r.NAME, r.FOOD_TYPE, r.RATING, l.HOUSE_NUMBER, g.COUNTY
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+JOIN GEOGRAPHIC AS g ON r.CITY_NAME = g.CITY_NAME
+WHERE r.CITY_NAME = 'Sacramento'
+  AND r.FOOD_TYPE LIKE '%pasta%'
+ORDER BY r.RATING DESC",,1.1070976000046358,2026-10-14T20:31:56.034358+00:00,ok,,1,stop,True,1091621300,16640000,20326000,1031425999,465,94
+91,where can i find a restaurant in the napa valley ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'napa valley'",,0.5456719000067096,2026-10-14T20:31:58.255852+00:00,ok,,1,stop,True,543917200,12087600,20819000,485767000,450,46
+92,where can i find a restaurant in the sacramento area ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'sacramento'",,0.5822903999942355,2026-10-14T20:32:05.247120+00:00,ok,,1,stop,True,555678000,16524800,20949000,487361000,450,46
+93,where can i find a restaurant in the monterey ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'monterey'",,0.539806500004488,2026-10-14T20:32:06.397724+00:00,ok,,1,stop,True,538140500,17281800,19799000,479463000,450,46
+94,where can i find a restaurant in the lake tahoe ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'lake tahoe'",,0.5628348000027472,2026-10-14T20:32:08.060645+00:00,ok,,1,stop,True,560663200,24599200,20459000,488697000,450,46
+95,where can i find a restaurant in the yosemite and mono lake area ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) LIKE '%yosemite%' OR LOWER(r.CITY_NAME) LIKE '%mono lake%'",,0.7174268000089796,2026-10-14T20:32:11.081383+00:00,ok,,1,stop,True,691351400,11890700,26247000,627226000,453,57
+96,what are some places in the bay area for ethiopian food with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) LIKE '%bay area%'
+  AND LOWER(r.FOOD_TYPE) = 'ethiopian'
+  AND r.RATING > 2",,0.7939430999977048,2026-10-14T20:32:18.365125+00:00,ok,,1,stop,True,792107200,11771000,21020000,729361000,463,67
+97,"Thinking about snacks, I wonder whether a muffin or a burrito is easier to fold, what are some places in the los angeles area for indian food with a rating above 3 (good or better)?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) IN ('muffin', 'burrito')
+  AND LOWER(r.CITY_NAME) = 'los angeles'
+  AND r.RATING >= 3",,0.8586045000120066,2026-10-14T20:32:20.899293+00:00,ok,,1,stop,True,855611000,18119400,23517000,786568000,481,72
+98,what are some places in the bay area for moroccan food with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) LIKE '%bay area%'
+  AND LOWER(r.FOOD_TYPE) = 'moroccan'
+  AND r.RATING > 2",,0.7585494000086328,2026-10-14T20:32:25.332813+00:00,ok,,1,stop,True,757463500,13120400,21523000,699485000,462,66
+99,what are some places in the northern california for italian food with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) LIKE '%northern california%'
+  AND LOWER(r.FOOD_TYPE) = 'italian'
+  AND r.RATING > 2
+ORDER BY r.RATING DESC",,0.8987553999904776,2026-10-14T20:32:27.987827+00:00,ok,,1,stop,True,881217100,18665600,20997000,815793000,461,74
+100,what are some places in the monterey for bar food with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'bar'
+  AND r.RATING >= 1.7
+  AND LOWER(r.CITY_NAME) = 'monterey'",,0.8136403000098653,2026-10-14T20:32:29.763682+00:00,ok,,1,stop,True,795188000,13340200,24623000,729844000,466,69
+101,give me a restaurant in the monterey for swiss food with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'swiss' AND r.RATING > 2 AND r.CITY_NAME = 'MONTEREY'",,0.7588383999973303,2026-10-14T20:32:31.397281+00:00,ok,,1,stop,True,757540200,10922600,24157000,699432000,463,64
+102,give me a restaurant in the bay area for american food with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) LIKE '%bay area%'
+  AND LOWER(r.FOOD_TYPE) = 'american'
+  AND r.RATING > 2",,0.8147664999996778,2026-10-14T20:32:35.452013+00:00,ok,,1,stop,True,792186700,14905200,20115000,729516000,461,65
+103,"give me a restaurant in the bay area for greek food with a rating above 4.5 (excellent or better), while the menu leaves me wondering whether toast or soup can teach a compass to sing?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.ID, r.NAME, r.FOOD_TYPE, r.RATING, l.HOUSE_NUMBER, l.STREET_NAME, l.CITY_NAME, g.COUNTY, g.REGION
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+JOIN GEOGRAPHIC AS g ON r.CITY_NAME = g.CITY_NAME
+WHERE LOWER(r.FOOD_TYPE) = 'greek'
+  AND r.RATING >= 4.5
+  AND (LOWER(r.FOOD_TYPE) LIKE '%toast%' OR LOWER(r.FOOD_TYPE) LIKE '%soup%')",,1.4623869999923045,2026-10-14T20:32:37.127734+00:00,ok,,1,stop,True,1460731900,10287900,21345000,1404173000,481,129
+104,give me a restaurant in the bay area for dinner food with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) LIKE '%bay area%'
+  AND LOWER(r.FOOD_TYPE) = 'dinner'
+  AND r.RATING > 2",,0.8067453000112437,2026-10-14T20:32:39.490108+00:00,ok,,1,stop,True,805445700,10502000,21018000,748748000,461,66
+105,give me a restaurant in the napa valley for ice cream food with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'ice cream'
+  AND r.RATING > 1.7
+  AND LOWER(r.CITY_NAME) = 'napa valley'",,0.8367865000036545,2026-10-14T20:32:44.453955+00:00,ok,,1,stop,True,831222000,11258300,24749000,772416000,467,70
+106,give me a latin restaurant in the bay area with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) LIKE '%bay area%'
+  AND LOWER(r.FOOD_TYPE) = 'latin'
+  AND r.RATING > 2",,0.7735577999992529,2026-10-14T20:32:45.293913+00:00,ok,,1,stop,True,772158600,12901400,21530000,732342000,459,65
+107,give me a dinner restaurant in the bay area with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE r.RATING > 2
+  AND LOWER(r.CITY_NAME) LIKE '%bay area%'",,0.6643449999974109,2026-10-14T20:32:48.901997+00:00,ok,,1,stop,True,651078400,23484600,22518000,572989000,459,54
+108,"While I debate whether soup or pie makes a better breakfast, give me a bar restaurant in the napa valley with a rating above 2 (below average or better)?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'bar'
+  AND LOWER(r.CITY_NAME) = 'napa valley'
+  AND r.RATING > 2",,0.7711663999943994,2026-10-14T20:32:52.016746+00:00,ok,,1,stop,True,769959100,10520600,22808000,712417000,472,66
+109,give me a bulgarian restaurant in the bay area with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'bay area'
+  AND LOWER(r.FOOD_TYPE) = 'bulgarian'
+  AND r.RATING >= 2",,0.8069428000017069,2026-10-14T20:32:54.561176+00:00,ok,,1,stop,True,804287900,12476400,24892000,737968000,461,67
+110,give me a german restaurant in the bay area with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'bay area'
+  AND LOWER(r.FOOD_TYPE) = 'german'
+  AND r.RATING > 2",,0.7763304999971297,2026-10-14T20:32:56.257538+00:00,ok,,1,stop,True,760485300,12323700,21574000,699706000,459,66
+111,where are some restaurants for nouveau food in the bay area with a rating above 3.5 (very good or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'nouveu'
+  AND r.RATING > 3.5
+  AND LOWER(r.CITY_NAME) LIKE '%bay area%';",,0.8623675999988336,2026-10-14T20:32:57.813945+00:00,ok,,1,stop,True,836330300,12248400,27451000,766733000,463,71
+112,"I keep changing my mind about whether soup or toast is better company for a compass, where are some restaurants for californian food in the napa valley with a rating above 2.3 (below average or better)?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) IN ('soup', 'toast')
+  AND LOWER(r.CITY_NAME) = 'napa valley'
+  AND r.RATING >= 2.3",,0.8191162000002805,2026-10-14T20:33:02.027974+00:00,ok,,1,stop,True,817308800,11914400,26404000,757860000,483,71
+113,where are some restaurants for dessert food in the bay area with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'dessert'
+  AND r.RATING > 2
+  AND LOWER(r.CITY_NAME) LIKE '%bay area%';",,0.8283546000020579,2026-10-14T20:33:04.472134+00:00,ok,,1,stop,True,803046800,13258500,26848000,736437000,461,68
+114,where are some restaurants for hunan food in the bay area with a rating above 3 (good or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) LIKE '%bay area%'
+  AND LOWER(r.FOOD_TYPE) = 'hunan'
+  AND r.RATING > 3",,0.8154613000078825,2026-10-14T20:33:06.282570+00:00,ok,,1,stop,True,791219100,12900000,21908000,732424000,461,66
+115,where are some restaurants for vietnamese/louisiana food in the bay area with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) LIKE '%bay area%'
+  AND LOWER(r.FOOD_TYPE) IN ('vietnamese', 'louisiana')
+  AND r.RATING > 2",,0.8582252000051085,2026-10-14T20:33:09.951288+00:00,ok,,1,stop,True,857098700,22371000,24046000,785542000,465,72
+116,where can i eat some breakfast food in the bay area with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) LIKE '%bay area%'
+  AND LOWER(r.FOOD_TYPE) LIKE '%breakfast%'
+  AND r.RATING > 2",,0.7792227000027196,2026-10-14T20:33:10.813183+00:00,ok,,1,stop,True,777051800,14136600,23787000,731733000,461,66
+117,"Thinking about snacks, I wonder whether a muffin or a burrito is easier to fold, where can i eat some swiss food in the monterey with a rating above 2 (below average or better)?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) IN ('muffin', 'burrito')
+  AND LOWER(r.CITY_NAME) = 'monterey'
+  AND r.RATING >= 2.0",,0.8834265000041341,2026-10-14T20:33:13.093805+00:00,ok,,1,stop,True,862204400,16494900,25186000,798947000,482,74
+118,"where can i eat some venison food in the bay area with a rating above 2 (below average or better), and I still cannot decide whether soup or pie is the better breakfast?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'venison'
+  AND r.RATING > 2
+  AND r.CITY_NAME LIKE 'bay area'
+ORDER BY r.RATING DESC, r.ID DESC",,0.9006564999872353,2026-10-14T20:33:16.030449+00:00,ok,,1,stop,True,882366600,17220300,23678000,816215000,476,75
+119,"where can i eat some pizza food in the bay area with a rating above 2 (below average or better), and I still cannot decide whether soup or pie is the better breakfast?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'pizza'
+  AND r.RATING > 2
+  AND r.CITY_NAME LIKE 'bay area'
+ORDER BY r.RATING DESC",,0.8814909999928204,2026-10-14T20:33:19.514008+00:00,ok,,1,stop,True,879041100,21294000,28889000,801528000,475,70
+120,where can i eat some ice cream food in the monterey with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'monterey'
+  AND LOWER(r.FOOD_TYPE) = 'ice cream'
+  AND r.RATING >= 1.7
+ORDER BY r.RATING DESC;",,0.9071161999891046,2026-10-14T20:33:22.109850+00:00,ok,,1,stop,True,894466100,13389700,23322000,836222000,467,77
+121,give me some yogurt restaurants in santa rosa with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'santa rosa'
+  AND LOWER(r.FOOD_TYPE) = 'yogurt'
+  AND r.RATING >= 1.7;",,0.8429049999976996,2026-10-14T20:33:24.881882+00:00,ok,,1,stop,True,829578900,17320000,21062000,764936000,462,71
+122,"I have been comparing the merits of lentil soup, roasted pears, and tiny pancakes for a fictional train journey, and still cannot decide which snack would best accompany a collection of mismatched teacups. I am still deciding whether a taco or a bowl of cereal suits a rainy day, give me some california restaurants in mill valley with a rating above 2 (below average or better)? Meanwhile, a hypothetical lunchbox committee is debating lentil pie, roasted pears, and tiny omelets, with no agreement about which one would travel best across an imaginary ocean.",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'mill valley'
+  AND r.RATING > 2.0
+  AND r.FOOD_TYPE IN ('taco', 'bowl of cereal')",,0.8975557000085246,2026-10-14T20:33:27.680442+00:00,ok,,1,stop,True,896014800,17193000,38297000,813586000,554,73
+123,"I have been comparing the merits of lentil soup, roasted pears, and tiny pancakes for a fictional train journey, and still cannot decide which snack would best accompany a collection of mismatched teacups. Thinking about snacks, I wonder whether a muffin or a burrito is easier to fold, give me some cafe restaurants in richmond with a rating above 2 (below average or better)? Separately, I am still deciding whether a basket of roasted chickpeas, a stack of pear pancakes, or a bowl of noodles would make the most sensible snack for a journey that exists only on a kitchen calendar.",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'richmond'
+  AND r.RATING > 2.0
+  AND (LOWER(r.FOOD_TYPE) = 'lentil soup' OR LOWER(r.FOOD_TYPE) = 'roasted pears' OR LOWER(r.FOOD_TYPE) = 'tiny pancakes')",,1.1317453000083333,2026-10-14T20:33:32.480123+00:00,ok,,1,stop,True,1128987800,14173800,31078000,1057608000,563,98
+124,give me some sandwiches restaurants in walnut creek with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'walnut creek'
+  AND LOWER(r.FOOD_TYPE) = 'sandwiches'
+  AND r.RATING >= 2",,0.7965356999920914,2026-10-14T20:33:33.615795+00:00,ok,,1,stop,True,779961500,14619200,18233000,737784000,458,68
+125,give me some cafe restaurants in yountville with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'yountville'
+  AND LOWER(r.FOOD_TYPE) = 'cafe'
+  AND r.RATING > 2",,0.7950691000005463,2026-10-14T20:33:36.082413+00:00,ok,,1,stop,True,791244100,12834400,23177000,731445000,459,67
+126,give me some places for catering in vallejo with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'vallejo'
+  AND LOWER(r.RATING) >= 1.7
+  AND r.FOOD_TYPE LIKE '%catering%';",,0.8486145000060787,2026-10-14T20:33:38.522468+00:00,ok,,1,stop,True,843248900,15476100,24076000,779998000,464,72
+127,"On a separate food note, I cannot choose between noodles and a sandwich, give me some places for chinese in pacheco with a rating above 4.5 (excellent or better)?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'chinese'
+  AND LOWER(r.CITY_NAME) = 'pacheco'
+  AND r.RATING >= 4.5",,0.8425074999977369,2026-10-14T20:33:41.786033+00:00,ok,,1,stop,True,820058300,22318400,24454000,748068000,477,69
+128,give me some places for chinese in petaluma with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'petaluma'
+  AND LOWER(r.FOOD_TYPE) = 'chinese'
+  AND r.RATING >= 2",,0.7907148000085726,2026-10-14T20:33:45.228707+00:00,ok,,1,stop,True,789140800,17088700,24160000,723732000,460,67
+129,give me some places for burgers in los altos with a rating above 1.4 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'los altos'
+  AND LOWER(r.FOOD_TYPE) = 'burger'
+  AND r.RATING >= 1.4
+ORDER BY r.RATING DESC;",,0.8980922000046121,2026-10-14T20:33:47.812795+00:00,ok,,1,stop,True,896962200,13758100,22296000,836180000,464,76
+130,give me some places for american in san francisco with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'san francisco'
+  AND LOWER(r.FOOD_TYPE) = 'american'
+  AND r.RATING > 2",,0.7499344000098063,2026-10-14T20:33:48.719284+00:00,ok,,1,stop,True,748259500,14468400,19277000,706009000,460,66
+131,where is a thai in unknown with a rating above 2.7 (average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'unknown'
+  AND LOWER(r.FOOD_TYPE) = 'thai'
+  AND r.RATING >= 2.7;",,0.8092680999980075,2026-10-14T20:33:51.127986+00:00,ok,,1,stop,True,797015300,11162500,20651000,744135000,457,68
+132,"My unrelated culinary dilemma involves choosing between cinnamon toast, vegetable pie, and a bowl of rice for a pretend celebration, while a very serious committee of stuffed animals reviews the menu. On a separate food note, I cannot choose between noodles and a sandwich, where is a chinese in saratoga with a rating above 1.7 (poorly rated or better)? This also reminds me of an unrelated menu puzzle involving pumpkin biscuits, chilled soup, and an imaginary picnic where every plate must be shared with a different stuffed animal.",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE r.CITY_NAME = 'SARATOGA'
+  AND r.RATING >= 1.7
+  AND (LOWER(r.FOOD_TYPE) = 'chinese' OR LOWER(r.FOOD_TYPE) = 'sandwich')
+ORDER BY r.RATING DESC",,1.0734571999928448,2026-10-14T20:33:55.637545+00:00,ok,,1,stop,True,1069707800,12155600,36386000,994078000,544,89
+133,where is a haitian in emeryville with a rating above 4.5 (excellent or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'emeryville'
+  AND LOWER(r.FOOD_TYPE) = 'haitian'
+  AND r.RATING >= 4.5",,0.8368603999988409,2026-10-14T20:33:56.714781+00:00,ok,,1,stop,True,835290800,14060100,21712000,791824000,462,69
+134,where is a mexican in ben lomond with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'ben lomond'
+  AND LOWER(r.FOOD_TYPE) = 'mexican'
+  AND r.RATING >= 2",,0.8121301000064705,2026-10-14T20:34:00.862756+00:00,ok,,1,stop,True,810545200,11140700,22964000,754643000,460,69
+135,"where is a french in emeryville with a rating above 2 (below average or better), and I have not settled whether pasta belongs in a lunchbox or a flowerpot?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'emeryville'
+  AND LOWER(r.FOOD_TYPE) = 'french'
+  AND r.RATING > 2.0",,0.817252599998028,2026-10-14T20:34:03.541496+00:00,ok,,1,stop,True,814894100,15317200,21617000,750010000,475,69
+136,"where is a restaurant in san carlos for bread food with a rating above 1.8 (poorly rated or better), and I am still weighing curry against apple pie for a trip to the moon?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'san carlos'
+  AND LOWER(r.FOOD_TYPE) = 'bread'
+  AND r.RATING >= 1.8
+  AND (LOWER(r.NAME) LIKE '%curry%' OR LOWER(r.NAME) LIKE '%apple pie%')",,1.1133781999960775,2026-10-14T20:34:06.186932+00:00,ok,,1,stop,True,1089140000,20025500,21830000,1023433000,481,92
+137,where is a restaurant in antioch for thai food with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'antioch'
+  AND LOWER(r.FOOD_TYPE) = 'thai'
+  AND r.RATING >= 2.0;",,0.8155251999996835,2026-10-14T20:34:09.123744+00:00,ok,,1,stop,True,813920000,13044300,22076000,752726000,461,70
+138,where is a restaurant in moraga for ice cream food with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'ice cream'
+  AND r.RATING >= 1.7
+  AND LOWER(r.CITY_NAME) = 'moraga'",,0.804017099988414,2026-10-14T20:34:11.686568+00:00,ok,,1,stop,True,802860900,11121100,22001000,746693000,465,69
+139,where is a restaurant in fairfield for donuts food with a rating above 4.5 (excellent or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'donuts' AND r.RATING >= 4.5 AND LOWER(r.CITY_NAME) = 'fairfield'",,0.8124764999956824,2026-10-14T20:34:14.152395+00:00,ok,,1,stop,True,810385900,21179900,24867000,733012000,463,66
+140,where is a restaurant in milpitas for vietnamese food with a rating above 3.3 (good or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'milpitas'
+  AND LOWER(r.FOOD_TYPE) = 'vietnamese'
+  AND r.RATING >= 3.3",,0.8305493000079878,2026-10-14T20:34:15.895616+00:00,ok,,1,stop,True,829514700,16086200,28119000,760630000,463,70
+141,what are some restaurants in san lorenzo for french food with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'san lorenzo'
+  AND LOWER(r.FOOD_TYPE) = 'french'
+  AND r.RATING >= 1.7
+ORDER BY r.RATING DESC;",,0.9277582000067923,2026-10-14T20:34:19.374350+00:00,ok,,1,stop,True,903046000,14351100,22201000,845167000,466,78
+142,what are some restaurants in berkeley for mexican food with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'berkeley'
+  AND LOWER(r.FOOD_TYPE) = 'mexican'
+  AND r.RATING >= 2.0",,0.8235491999948863,2026-10-14T20:34:21.210135+00:00,ok,,1,stop,True,802067900,13723800,19738000,744183000,461,69
+143,what are some restaurants in sunnyvale for afghani food with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'sunnyvale'
+  AND LOWER(r.FOOD_TYPE) = 'afghani'
+  AND r.RATING >= 2",,0.8072307000111323,2026-10-14T20:34:22.900979+00:00,ok,,1,stop,True,805170600,13580400,23547000,744675000,462,68
+144,"While planning a completely hypothetical feast, I keep weighing pumpkin soup against blueberry dumplings and wondering whether a pocket-sized omelet would be practical for a voyage across a carpeted ocean. what are some restaurants in alameda for burgers food with a rating above 2 (below average or better)? Meanwhile, a hypothetical lunchbox committee is debating lentil pie, roasted pears, and tiny omelets, with no agreement about which one would travel best across an imaginary ocean.",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'burger'
+  AND r.RATING > 2
+  AND LOWER(r.CITY_NAME) = 'alameda'",,0.7355261000047904,2026-10-14T20:34:26.923178+00:00,ok,,1,stop,True,734131000,12124800,33645000,664842000,535,61
+145,what are some restaurants in aptos for barbeque food with a rating above 1.8 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.FOOD_TYPE) = 'barbecue'
+  AND r.RATING > 1.8",,0.637942600005772,2026-10-14T20:34:29.346207+00:00,ok,,1,stop,True,633995900,10938100,22183000,578162000,466,55
+146,give me some steak restaurants in morgan hill with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'morgan hill'
+  AND LOWER(r.FOOD_TYPE) = 'steak'
+  AND r.RATING > 2",,0.7429029000049923,2026-10-14T20:34:29.989076+00:00,ok,,1,stop,True,740389000,14286400,24314000,695518000,459,66
+147,give me some coffee restaurants in castro valley with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'castro valley'
+  AND LOWER(r.FOOD_TYPE) = 'coffee'
+  AND r.RATING >= 2",,0.793225799992797,2026-10-14T20:34:32.381394+00:00,ok,,1,stop,True,780949700,11439800,20440000,724599000,459,66
+148,"give me some spanish restaurants in san jose with a rating above 2 (below average or better), while the menu leaves me wondering whether toast or soup can teach a compass to sing?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'san jose'
+  AND LOWER(r.FOOD_TYPE) = 'spanish'
+  AND r.RATING > 2
+  AND r.FOOD_TYPE IN ('toast', 'soup')",,0.9463543000019854,2026-10-14T20:34:34.830419+00:00,ok,,1,stop,True,944477200,22616100,23321000,872451000,475,80
+149,give me some american restaurants in hollister with a rating above 2 (below average or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'hollister'
+  AND LOWER(r.FOOD_TYPE) = 'american'
+  AND r.RATING >= 2",,0.7902780000003986,2026-10-14T20:34:39.368460+00:00,ok,,1,stop,True,778317200,19155000,22982000,704052000,459,66
+150,give me some seafood restaurants in napa with a rating above 1.7 (poorly rated or better)?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.CITY_NAME) = 'napa'
+  AND LOWER(r.FOOD_TYPE) = 'seafood'
+  AND r.RATING >= 1.7",,0.8270809000096051,2026-10-14T20:34:40.161882+00:00,ok,,1,stop,True,799662100,10588900,20950000,761092000,462,68
+151,"where is burger pit steak house in campbell, and I have not settled whether pasta belongs in a lunchbox or a flowerpot?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.NAME) = 'burger pit steak house'
+  AND LOWER(r.CITY_NAME) = 'campbell'",,0.7078624999994645,2026-10-14T20:34:44.128096+00:00,ok,,1,stop,True,703850900,14824300,25583000,640190000,465,58
+152,where is roof top cafe in palo alto ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.NAME) = 'roof top cafe'
+  AND LOWER(l.CITY_NAME) = 'palo alto'",,0.6752639000042109,2026-10-14T20:34:45.535788+00:00,ok,,1,stop,True,672794600,13118800,23145000,615128000,448,58
+153,"where is azteca de oro restaurant in castroville, and I am still weighing curry against apple pie for a trip to the moon?",race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.NAME) = 'azteca de oro'
+  AND LOWER(r.CITY_NAME) = 'castroville'
+  AND r.FOOD_TYPE = 'curry'",,0.8433133000071393,2026-10-14T20:34:47.641173+00:00,ok,,1,stop,True,838299300,13077100,26264000,772308000,467,71
+154,where is marys pizza shack in san ramon ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.NAME) = 'marys pizza shack'
+  AND LOWER(l.CITY_NAME) = 'san ramon'",,0.6955738999968162,2026-10-14T20:34:49.222641+00:00,ok,,1,stop,True,691146600,19302500,22271000,628108000,449,59
+155,where is bavarian corner in la honda ?,race,race_v2_house_number,qwen2.5:3b-instruct,"SELECT l.HOUSE_NUMBER, r.NAME
+FROM RESTAURANT AS r
+JOIN LOCATION AS l ON r.ID = l.RESTAURANT_ID
+WHERE LOWER(r.NAME) = 'bavarian corner'
+  AND LOWER(l.CITY_NAME) = 'la honda'",,0.6888667000021087,2026-10-14T20:34:51.995790+00:00,ok,,1,stop,True,687751300,12507700,23337000,630729000,448,58

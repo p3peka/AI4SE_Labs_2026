@@ -1,0 +1,166 @@
+{
+  "alpha": 0.05,
+  "global": {
+    "accuracy": {
+      "test": "Cochran Q",
+      "statistic": 13.151515151515152,
+      "df": 2,
+      "asymptotic_p": 0.0013937496473788817,
+      "permutation_p": 0.0013,
+      "permutation_calibration": "Monte Carlo within-question label permutation",
+      "resamples": 49999,
+      "n": 155,
+      "discordant_questions": 33,
+      "holm_p_three_global_tests": 0.0026
+    },
+    "f1": {
+      "test": "Friedman with within-question permutation calibration",
+      "statistic": 17.576642335766902,
+      "df": 2,
+      "asymptotic_p": 0.00015250378113696155,
+      "permutation_p": 0.00018,
+      "permutation_calibration": "Monte Carlo within-question label permutation",
+      "resamples": 49999,
+      "n": 155,
+      "holm_p_three_global_tests": 0.00054
+    },
+    "latency": {
+      "test": "Friedman with within-question permutation calibration",
+      "statistic": 8.219354838709705,
+      "df": 2,
+      "asymptotic_p": 0.016413068210558913,
+      "permutation_p": 0.01684,
+      "permutation_calibration": "Monte Carlo within-question label permutation",
+      "resamples": 49999,
+      "n": 155,
+      "holm_p_three_global_tests": 0.01684
+    }
+  },
+  "pairwise": [
+    {
+      "metric": "accuracy",
+      "a": "race",
+      "b": "clear",
+      "test": "Exact McNemar",
+      "a_wins": 15,
+      "b_wins": 7,
+      "ties": 133,
+      "p": 0.13380050659179688,
+      "mean_a_minus_b": 0.05161290322580645,
+      "median_a_minus_b": 0.0,
+      "holm_p_nine_pairwise_tests": 0.4014015197753906
+    },
+    {
+      "metric": "accuracy",
+      "a": "race",
+      "b": "crisp",
+      "test": "Exact McNemar",
+      "a_wins": 3,
+      "b_wins": 12,
+      "ties": 140,
+      "p": 0.03515625,
+      "mean_a_minus_b": -0.05806451612903226,
+      "median_a_minus_b": 0.0,
+      "holm_p_nine_pairwise_tests": 0.17578125
+    },
+    {
+      "metric": "accuracy",
+      "a": "clear",
+      "b": "crisp",
+      "test": "Exact McNemar",
+      "a_wins": 6,
+      "b_wins": 23,
+      "ties": 126,
+      "p": 0.002315700054168701,
+      "mean_a_minus_b": -0.10967741935483871,
+      "median_a_minus_b": 0.0,
+      "holm_p_nine_pairwise_tests": 0.016209900379180908
+    },
+    {
+      "metric": "f1",
+      "a": "race",
+      "b": "clear",
+      "test": "Exact paired sign",
+      "a_wins": 17,
+      "b_wins": 14,
+      "ties": 124,
+      "p": 0.720100131817162,
+      "mean_a_minus_b": -0.006194683184388926,
+      "median_a_minus_b": 0.0,
+      "holm_p_nine_pairwise_tests": 1.0
+    },
+    {
+      "metric": "f1",
+      "a": "race",
+      "b": "crisp",
+      "test": "Exact paired sign",
+      "a_wins": 3,
+      "b_wins": 24,
+      "ties": 128,
+      "p": 4.9233436584472656e-05,
+      "mean_a_minus_b": -0.09630586175787038,
+      "median_a_minus_b": 0.0,
+      "holm_p_nine_pairwise_tests": 0.0004431009292602539
+    },
+    {
+      "metric": "f1",
+      "a": "clear",
+      "b": "crisp",
+      "test": "Exact paired sign",
+      "a_wins": 8,
+      "b_wins": 27,
+      "ties": 120,
+      "p": 0.0018782254774123432,
+      "mean_a_minus_b": -0.09011117857348146,
+      "median_a_minus_b": 0.0,
+      "holm_p_nine_pairwise_tests": 0.015025803819298746
+    },
+    {
+      "metric": "latency",
+      "a": "race",
+      "b": "clear",
+      "test": "Exact paired sign",
+      "a_wins": 64,
+      "b_wins": 91,
+      "ties": 0,
+      "p": 0.036422752537651655,
+      "mean_a_minus_b": -0.1144977574191627,
+      "median_a_minus_b": -0.022807500005001202,
+      "holm_p_nine_pairwise_tests": 0.17578125
+    },
+    {
+      "metric": "latency",
+      "a": "race",
+      "b": "crisp",
+      "test": "Exact paired sign",
+      "a_wins": 62,
+      "b_wins": 93,
+      "ties": 0,
+      "p": 0.015693618723720187,
+      "mean_a_minus_b": -0.01201566709562265,
+      "median_a_minus_b": -0.014930599994841032,
+      "holm_p_nine_pairwise_tests": 0.09416171234232112
+    },
+    {
+      "metric": "latency",
+      "a": "clear",
+      "b": "crisp",
+      "test": "Exact paired sign",
+      "a_wins": 81,
+      "b_wins": 74,
+      "ties": 0,
+      "p": 0.629997593884179,
+      "mean_a_minus_b": 0.10248209032354005,
+      "median_a_minus_b": 0.002857600018614903,
+      "holm_p_nine_pairwise_tests": 1.0
+    }
+  ],
+  "seeds": {
+    "accuracy": 42,
+    "f1": 43,
+    "latency": 44
+  },
+  "global_family": "Three overall metric tests",
+  "pairwise_family": "All nine pre-specified pairwise metric tests",
+  "latency_sign_direction": "Positive a-minus-b means A is slower"
+}

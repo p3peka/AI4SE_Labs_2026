@@ -1,0 +1,43 @@
+{
+  "provider": "Ollama",
+  "api": "http://127.0.0.1:11434/api/chat",
+  "model": "qwen2.5:3b-instruct",
+  "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "quantization": "Q4_K_M",
+  "execution_device": "GPU",
+  "ollama_version": "0.40.3",
+  "generation_settings": {
+    "temperature": 0,
+    "seed": 42,
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "repeat_penalty": 1.0
+  },
+  "stream": false,
+  "keep_alive": "30m",
+  "framework_order_seed": 20261014,
+  "question_count": 155,
+  "prediction_count": 465,
+  "started_utc": "2026-10-14T20:27:58.741414+00:00",
+  "completed_utc": "2026-10-14T20:34:53.392996+00:00",
+  "prompt_sha256": {
+    "race": "367ef9951b41f7e66eb0a481120372709a32ad4dcbc363f881d58516b174662a",
+    "clear": "d8b3966d7a31fd66d076d581ded3e3a87cb6bff1b44068ea63c563749d4290ec",
+    "crisp": "ec1ad8aef286ba2d30fdfd0d402caf1212a498dc7117130dd053fe9088942f2d"
+  },
+  "data_sha256": {
+    "restaurants-db.txt": "d7cd7c98fd437b79791e510a7cc9844b01d156aab6bf64da6bc3fea02be69da1",
+    "restaurants-schema.csv": "73d22c3649e95b96414fd2058a84bbfa54870c5515845d6918948edc22d0963a",
+    "restaurants_dataset.csv": "7c1f0a6a0262e2506de17c831b06e586b430a99183574ab7400efbbd94db7706"
+  },
+  "software": {
+    "python": "3.12.3 (tags/v3.12.3:f6650f9, Apr  9 2024, 14:05:25) [MSC v.1938 64 bit (AMD64)]",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "request_context": "One user message; no previous messages or answers.",
+  "timing_definition": "perf_counter wall time around each complete HTTP request",
+  "ollama_duration_unit": "nanoseconds",
+  "raw_output_convention": "A blank raw_model_output means it equals predicted_sql."
+}
